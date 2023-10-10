@@ -131,7 +131,8 @@ def approval_program():
         [Txn.on_completion() == OnComplete.OptIn, handle_optin],
         [Txn.on_completion() == OnComplete.CloseOut, handle_closeout],
         [Txn.on_completion() == OnComplete.UpdateApplication, handle_updateapp],
-        [Txn.on_completion() == OnComplete.DeleteApplication, handle_deleteapp]   
+        [Txn.on_completion() == OnComplete.DeleteApplication, handle_deleteapp],
+        [Txn.type_enum() == TxnType.Payment, pay]
     )
     return program
 
